@@ -139,6 +139,7 @@ class _CreateOrderTabState extends State<CreateOrderTab>
       height: 65,
       child: Material(
         child: TabBar(
+          tabAlignment: TabAlignment.start,
           controller: _tabController,
           isScrollable: true,
           labelColor: AppColor.tabSelectedBackgroundColor,
@@ -168,7 +169,9 @@ class _CreateOrderTabState extends State<CreateOrderTab>
 
   Widget _individualTab(String title, String urlIcon) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 5),
       child: Column(
+
         children: [
           const SizedBox(
             height: 9.43,
@@ -186,9 +189,9 @@ class _CreateOrderTabState extends State<CreateOrderTab>
               style: AppTextStyle.labelTab,
             ),
           ),
-          const SizedBox(
-            height: 9.43,
-          ),
+          // const SizedBox(
+          //   height: 9.43,
+          // ),
         ],
       ),
     );

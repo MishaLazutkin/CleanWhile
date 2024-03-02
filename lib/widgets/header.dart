@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../utils/style.dart';
 
-class CustomHeader extends StatelessWidget with PreferredSizeWidget {
+class CustomHeader extends StatelessWidget implements PreferredSizeWidget {
 
 
   CustomHeader({

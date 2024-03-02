@@ -1,14 +1,10 @@
 import 'package:clean_whale/utils/style.dart';
 import 'package:clean_whale/widgets/all.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
-
 import '../menu.dart';
 import '../providers/info_provider.dart';
 import '../widgets/header.dart';
-import '../widgets/info/discount.dart';
-import '../widgets/info/flat_price.dart';
 
 class QuestionsAnswers extends StatefulWidget {
   const QuestionsAnswers({Key? key}) : super(key: key);
@@ -18,7 +14,7 @@ class QuestionsAnswers extends StatefulWidget {
 }
 
 class _QuestionsAnswersState extends State<QuestionsAnswers> {
-  //late bool _isExpanded=false;
+  // late bool _isExpanded=false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +44,7 @@ class _QuestionsAnswersState extends State<QuestionsAnswers> {
           ),
         ),
       ),
-      bottomNavigationBar:   CustomBottomBar(2),
+      bottomNavigationBar: CustomBottomBar(2),
     );
   }
 
@@ -137,7 +133,6 @@ class _QuestionsAnswersState extends State<QuestionsAnswers> {
                             children: List.generate(
                                 provider.questionsDataList[index]['subtitle1']
                                     .length, (index) {
-
                           return ExpansionTile(
                               childrenPadding: EdgeInsets.all(15),
                               textColor: Color.fromRGBO(18, 96, 153, 1),
@@ -150,24 +145,25 @@ class _QuestionsAnswersState extends State<QuestionsAnswers> {
                                           style: const TextStyle(
                                               fontSize: 18,
                                               fontWeight: FontWeight.w500,
-
                                               fontFamily: AppFont.heavy))),
                                 ],
                               ),
                               onExpansionChanged: (value) {
                                 setState(() {
-                                //  _isExpanded = value;
+                                  //  _isExpanded = value;
                                 });
                               },
                               leading: SizedBox(
                                 width: 50,
                                 child: AnimatedRotation(
-                                 // turns: _iconTurns,
-                                  turns:     0,
+                                  // turns: _iconTurns,
+                                  turns: 0,
                                   duration: Duration(seconds: 1),
                                   child: Row(
                                     children: [
-                                      const Icon(Icons.expand_more,),
+                                      const Icon(
+                                        Icons.expand_more,
+                                      ),
                                     ],
                                   ),
                                 ),
@@ -176,18 +172,49 @@ class _QuestionsAnswersState extends State<QuestionsAnswers> {
                               children: [
                                 Row(
                                   children: [
-                                    SizedBox(width: 60,),
+                                    Row(
+                                      children: [
+                                        Column(
+
+                                          children: [
+                                            Container(
+                                              width: 2,
+                                              height: 20,//double.infinity,
+                                              color: Colors.grey,
+                                              //decoration: BoxDecoration( border: Border.all(width: 2,color: Colors.grey)),
+                                            ),
+                                            Container(
+                                              width: 10,
+                                              height: 10,
+                                              decoration: BoxDecoration(shape: BoxShape.circle,border: Border.all(width: 2,color: Colors.grey)),
+                                            ),
+                                            Container(
+                                              width: 2,
+                                              height: 20,//double.infinity,
+                                              color: Colors.grey,
+                                              //decoration: BoxDecoration( border: Border.all(width: 2,color: Colors.grey)),
+                                            ),
+                                          ],
+                                        ),
+                                        Container(
+                                          width: 10,
+                                          height: 2,//double.infinity,
+                                          color: Colors.grey,
+                                          //decoration: BoxDecoration( border: Border.all(width: 2,color: Colors.grey)),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(width: 20,),
                                     Expanded(
                                       child: Text(
-                                          '${provider.questionsDataList[currentIndex]['subtitle1'][index].toString().split(',')[3]}',
-                              textAlign: TextAlign.start,
-
-                              style: const TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w300,
-                              color:
-                              Color.fromRGBO(43, 43, 43, 1),
-                              fontFamily: AppFont.heavy),
+                                        '${provider.questionsDataList[currentIndex]['subtitle1'][index].toString().split(',')[3]}',
+                                        textAlign: TextAlign.start,
+                                        style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w300,
+                                            color:
+                                                Color.fromRGBO(43, 43, 43, 1),
+                                            fontFamily: AppFont.heavy),
                                       ),
                                     ),
                                   ],
